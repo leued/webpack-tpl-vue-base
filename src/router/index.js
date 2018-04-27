@@ -1,9 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-const HelloWorld = () => import ('@/components/HelloWorld');
-const test = () => import ('@/pages/test/index');
-const table = () => import ('@/pages/test/table');
-const main = () => import ('@/components/layout/main');
+
 Vue.use(Router);
 
 export default new Router({
@@ -11,22 +8,22 @@ export default new Router({
     {
       path: '/',
       name: 'HelloWorld',
-      component: HelloWorld
+      component: () => import ('@/components/HelloWorld')
     },
     {
       path: '/main',
       name: 'main',
-      component: main,
+      component: () => import ('@/components/layout/main'),
       children : [
         {
           path: 'test',
           name: 'test',
-          component: test
+          component: () => import ('@/pages/test/index')
         },
         {
           path: 'table',
           name: 'table',
-          component: table
+          component: () => import ('@/pages/test/table')
         }
       ]
     }

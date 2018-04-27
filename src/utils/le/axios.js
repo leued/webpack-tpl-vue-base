@@ -1,10 +1,8 @@
 import axios from 'axios';
-import {showLoading , closeLoading } from './loading.js'
 
 //拦截请求
 axios.interceptors.request.use(function (config) {
     // 在发送请求之前做些什么，如：设置请求头
-    showLoading();
     return config;
   }, function (error) {
     // 对请求错误做些什么
@@ -14,10 +12,6 @@ axios.interceptors.request.use(function (config) {
 // 添加响应拦截器
 axios.interceptors.response.use(function (response) {
     // 对响应数据做点什么
-    setTimeout(() => {
-      closeLoading();
-    }, 1000);
-
     // 根据返回的errno值来做不同的处理，需要和后端统一定义
     if(response.status == 200 && response.data.errno){
       switch(response.data.errno){

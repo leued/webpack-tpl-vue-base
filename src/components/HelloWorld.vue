@@ -9,7 +9,7 @@ export default {
   name: 'myindex',
   data () {
     return {
-      msg: 'LOUYU'
+      msg: 'rockcode'
     }
   }
 }

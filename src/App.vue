@@ -14,7 +14,4 @@ export default {
 #app {
   
 }
-.el-loading-mask{
-  transition: none;
-}
 </style>
